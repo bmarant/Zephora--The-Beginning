@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD9B0914-1B12-4F02-93AE-45E00389EAE0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZephorasWorld</RootNamespace>
+    <AssemblyName>ZephorasWorld</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HSProgressBar">
+      <HintPath>..\..\..\..\..\Downloads\HSProgressBar\HSProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.5\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Bag.xaml.cs">
+      <DependentUpon>Bag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ArmorClass.cs" />
+    <Compile Include="Classes\attack.cs" />
+    <Compile Include="Classes\BagItems.cs" />
+    <Compile Include="Classes\Endurance.cs" />
+    <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\HitPointsManaAc.cs" />
+    <Compile Include="Classes\Items.cs" />
+    <Compile Include="Classes\LevelingEntitiy.cs" />
+    <Compile Include="Classes\LootSystem.cs" />
+    <Compile Include="Classes\ParserMovements.cs" />
+    <Compile Include="Classes\player.cs" />
+    <Compile Include="Classes\StateMachineMovements.cs" />
+    <Compile Include="FormCharacterCreator.xaml.cs">
+      <DependentUpon>FormCharacterCreator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IEntity.cs" />
+    <Compile Include="LoadCharacter.xaml.cs">
+      <DependentUpon>LoadCharacter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainScreen.xaml.cs">
+      <DependentUpon>MainScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UDPCLientServer\LoginPacket.cs" />
+    <Compile Include="UDPCLientServer\Packet.cs" />
+    <Compile Include="World.xaml.cs">
+      <DependentUpon>World.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorldCell.cs" />
+    <Compile Include="Zephora.xaml.cs">
+      <DependentUpon>Zephora.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Bag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormCharacterCreator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="World.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Zephora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ZephoraBanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="brassy_frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BackgroundLoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="blueframe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="status frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Usernames.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="paper background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="wood background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="04-Soft-Cloth.png" />
+    <Resource Include="05-Cork.png" />
+    <Resource Include="06-Granite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="07-Rigid-Granite.png" />
+    <Resource Include="08-Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Icon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="textboxBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="addButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="negButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Splash.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

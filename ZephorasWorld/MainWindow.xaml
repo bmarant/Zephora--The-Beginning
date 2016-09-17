@@ -1,0 +1,107 @@
+﻿<Window x:Class="ZephorasWorld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zephora :The Beginning" Height="540.181"  WindowStyle="None" Width="910.011" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Rockwell Extra Bold" Icon="Splash.png" Background="{x:Null}" KeyDown="Window_KeyDown" Foreground="{x:Null}" MouseDown="Window_MouseDown">
+
+
+
+    <Grid Margin="20" >
+        <Grid.Background>
+            <ImageBrush ImageSource="paper background.png"/>
+        </Grid.Background>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="336*"/>
+            <RowDefinition Height="173*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="Username" Margin="35,92,22,0" TextWrapping="Wrap" RenderTransformOrigin="0.412,1.217" BorderThickness="2" Height="39" VerticalAlignment="Top" Grid.Column="1" FontSize="16" FontWeight="Bold" Foreground="Black" Grid.ColumnSpan="3">
+
+
+            <TextBox.Background>
+                <ImageBrush ImageSource="07-Rigid-Granite.png"/>
+            </TextBox.Background>
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="13" >
+
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+
+
+        <PasswordBox x:Name="Password" Margin="35,162,22,0" RenderTransformOrigin="0.133,0.565"  Height="38" VerticalAlignment="Top" Grid.Column="1" Foreground="Black" FontWeight="Bold" FontSize="14.667" PasswordChar="●" Grid.ColumnSpan="3" >
+            <PasswordBox.Resources>
+              
+                   
+            </PasswordBox.Resources>
+            <PasswordBox.Background>
+                
+                
+                
+                
+
+                <ImageBrush ImageSource="07-Rigid-Granite.png"/>
+            </PasswordBox.Background>
+
+            <PasswordBox.Effect>
+                <DropShadowEffect/>
+            </PasswordBox.Effect>
+
+            
+        </PasswordBox>
+       
+        <Button Content="Login" Margin="37,222,41,0" Height="43" VerticalAlignment="Top" Grid.Column="2" FontWeight="Bold" Foreground="#FFC18A8A" Click="Button_Click" KeyDown="Button_KeyDown" Tag="Please enter user name and password before continuing" ToolTip="Please enter username and password before continuings" >
+            <Button.Resources>
+
+
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="button.png"/>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label Content="Username" Margin="35,65,0,0" VerticalAlignment="Top" Foreground="Black" Height="26" Grid.Column="1" HorizontalAlignment="Left" Width="89" FontFamily="Stencil" Grid.ColumnSpan="2"/>
+        <Label Content="Password" Margin="35,138,0,0" Foreground="Black" Height="26" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="89" FontFamily="Stencil" Grid.ColumnSpan="2"/>
+        <Label x:Name="label3" Content="    " Margin="37,287,41,0" VerticalAlignment="Top" Height="37" Grid.Column="2" FontFamily="Segoe UI Black" FontSize="11" HorizontalAlignment="Center"/>
+        <Button x:Name="register" Content="Registeration Form" Margin="89,90,25,0" Click="register_Click" Height="44" VerticalAlignment="Top" Grid.Column="3" Foreground="White" Grid.ColumnSpan="2" Grid.Row="1">
+            <Button.Resources>
+
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+
+            </Button.Resources>
+
+            <Button.Background>
+                <ImageBrush ImageSource="button.png"/>
+            </Button.Background>
+        </Button>
+        <ProgressBar x:Name="progressBar1" Grid.Column="2" HorizontalAlignment="Left" Height="10" Margin="10,90,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2" Grid.Row="1"/>
+
+
+        <Label x:Name="percentage" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="76,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
+      
+    </Grid>
+    
+</Window>
