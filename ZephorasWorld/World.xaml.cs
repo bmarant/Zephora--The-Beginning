@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.Net;
-using System.Drawing;
 using ZephorasWorld.Classes;
-using ZephorasWorld.UDPCLientServer;
 using System.Windows.Threading;
 using MySql.Data.MySqlClient;
 using System.Xml;
-using System.Xml.Linq;
 using ZephoraWorld.UDPCLientServer;
 using System.Diagnostics;
 using System.Collections.Concurrent;
@@ -47,12 +38,12 @@ namespace ZephorasWorld
         public int enemyHitpointdrop;
         public static string charLevels;
         public double exper;
-        public double exxploa;
+      
         public int levelup;
         public double leveledup;
         public double addExps;
-        public int levels = 16;
-        public bool classe = true;
+      
+     
         LevelingEntitiy newlevel;
         ArmorClass armor;
         public double speed = 0.05 * 100;
@@ -244,7 +235,7 @@ namespace ZephorasWorld
             charLevels = charLevel;
 
 
-            double mathematicsSucks = newlevel.Experience * 0.022 * newlevel.leveling * newlevel.leveling * 2 + 160;
+            double mathematicsSucks = newlevel.Experience * 0.40 * newlevel.leveling * newlevel.leveling * 2 + 160;
             string experiences = Convert.ToString(mathematicsSucks);
 
 
@@ -586,7 +577,7 @@ namespace ZephorasWorld
                 timer.Interval = TimeSpan.FromSeconds(1.42);
 
 
-                int healt = 5;
+                int healt = 20;
 
                 int healthIncrease = Convert.ToInt32(health);
 
@@ -2170,13 +2161,14 @@ namespace ZephorasWorld
                 MySqlDataReader myReader;
 
 
+
                 try
                 {
                     conDataBase.Open();
 
                     myReader = cmdDataBase.ExecuteReader();
 
-
+                    game_screen.AppendText("Character was saved" + Environment.NewLine);
 
                     while (myReader.Read())
                     {
@@ -2346,7 +2338,9 @@ namespace ZephorasWorld
                 char_level.Content = newlevel.level;
 
 
+                double percentage = exper / Convert.ToDouble(expStill.Content) * 100;
 
+                expPercentage.Content = Convert.ToInt32(percentage).ToString() + "%";
 
             }
             else
@@ -2528,7 +2522,7 @@ namespace ZephorasWorld
 
                 char_level.Content = newlevel.leveling.ToString();
 
-                double math = newlevels.Experience * 0.022 * newlevel.leveling * newlevel.leveling * 2 + 160;
+                double math = newlevels.Experience * 0.40 * newlevel.leveling * newlevel.leveling * 2 + 160;
                 string experi = Convert.ToString(math);
                 game_screen.AppendText(" Ding!!!  You have gained level " + newlevel.leveling + Environment.NewLine);
 
@@ -3043,6 +3037,30 @@ namespace ZephorasWorld
                     return hostAddress;
             }
             return null; // or IPAddress.None if you prefer
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                chat_box.AppendText("You have 30 Seconds left" + Environment.NewLine);
+
+
+                camping.Start();
+
+
+
+                chat_box.ScrollToEnd();
+
+             
+            }
         }
     }
 }

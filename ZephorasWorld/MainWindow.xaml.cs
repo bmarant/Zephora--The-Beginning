@@ -296,6 +296,11 @@ namespace ZephorasWorld
                this.DragMove();
             
         }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
     }
 

@@ -48,5 +48,15 @@ namespace ZephorasWorld
             this.Close();
             newCharacter.ShowDialog();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

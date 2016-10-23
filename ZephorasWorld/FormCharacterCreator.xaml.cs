@@ -111,6 +111,7 @@ namespace ZephorasWorld
             {
                
                 eGender = EntityGender.Male;
+
                
             }
             else if (rdo_female.IsChecked == true)

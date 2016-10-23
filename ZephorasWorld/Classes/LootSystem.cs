@@ -61,7 +61,7 @@ namespace ZephorasWorld.Classes
             get
             {
                 string connections = "datasource=74.80.233.83;port=3306;uid=barant2003;password=onedollar2;";
-                string randomLoot = "SELECT * FROM `zephora`.zephloot WHERE Id = '" +rdm.Next(1,10)+"';";
+                string randomLoot = "SELECT * FROM `zephora`.zephloot WHERE Id = '" +rdm.Next(1,12)+"';";
                 MySqlConnection newConnection = new MySqlConnection(connections);
                 MySqlCommand newCmd = new MySqlCommand(randomLoot,newConnection);
                 MySqlDataReader myReader;

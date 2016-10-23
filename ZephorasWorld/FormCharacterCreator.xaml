@@ -8,7 +8,34 @@
             <GradientStop Color="#FF804343" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+
+
     <Grid>
+
+
         <Grid.Background>
             <ImageBrush ImageSource="paper background.png"/>
         </Grid.Background>
@@ -16,41 +43,39 @@
             <RowDefinition Height="31*"/>
             <RowDefinition Height="114*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="char_name" HorizontalAlignment="Left" Height="28" Margin="15,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" BorderThickness="0" TextAlignment="Center" FontFamily="Segoe UI Semibold" Text="Admin">
+
+        <TextBox x:Name="char_name" HorizontalAlignment="Left" Height="28" Margin="15,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" BorderThickness="0" TextAlignment="Center" FontFamily="Segoe UI Semibold">
             <TextBox.Background>
                 <ImageBrush ImageSource="textboxBackground.png" Stretch="UniformToFill"/>
             </TextBox.Background>
         </TextBox>
-        <Label Content="Character Name" HorizontalAlignment="Left" Margin="26,16,0,0" VerticalAlignment="Top" Width="169" Foreground="Black" FontFamily="Sitka Small" FontSize="18"/>
-        <GroupBox Header="Character Make" HorizontalAlignment="Left" Margin="26,86,0,0" VerticalAlignment="Top" Height="105" Width="144" Foreground="#FFDC8C8C" BorderThickness="1" Grid.RowSpan="2">
-            <GroupBox.Effect>
-                <DropShadowEffect/>
-            </GroupBox.Effect>
+        <Label Content="Character Name" HorizontalAlignment="Left" Margin="26,11,0,0" VerticalAlignment="Top" Width="169" Foreground="Black" FontFamily="Sitka Small" FontSize="18"/>
+        <GroupBox Header="Character Make" HorizontalAlignment="Left" Margin="26,86,0,0" VerticalAlignment="Top" Height="105" Width="144" Foreground="Black" BorderThickness="0" Grid.RowSpan="2">
             <RadioButton x:Name="rdo_male" Content="Male
                          " HorizontalAlignment="Left" Margin="10,10,0,50" Width="73" FontSize="12" FontWeight="Normal" Foreground="Black"/>
         </GroupBox>
-        <RadioButton x:Name="rdo_female" Content="Female" HorizontalAlignment="Left" Margin="42,43.198,0,0" VerticalAlignment="Top" Foreground="#FFC74242" Height="23" Width="69" Grid.Row="1">
-            <RadioButton.Effect>
-                <DropShadowEffect/>
-            </RadioButton.Effect>
-        </RadioButton>
-        <GroupBox Header="Class" HorizontalAlignment="Left" Margin="26,119.198,0,51" Width="199" Foreground="#FF87A9D1" Grid.Row="1">
+        <RadioButton x:Name="rdo_female" Content="Female" HorizontalAlignment="Left" Margin="42,43.198,0,0" VerticalAlignment="Top" Foreground="Black" Height="23" Width="69" Grid.Row="1"/>
+        <GroupBox Header="Class" HorizontalAlignment="Left" Margin="26,116,0,54" Width="199" Foreground="Black" Grid.Row="1" BorderThickness="0">
             <GroupBox.Effect>
                 <DropShadowEffect/>
             </GroupBox.Effect>
-            <ComboBox x:Name="cbo_charclass" RenderTransformOrigin="0.503,-1.296" Margin="10,0,30,120" SelectionChanged="cbo_charclass_SelectionChanged">
+            <ComboBox x:Name="cbo_charclass" RenderTransformOrigin="0.503,-1.296" Margin="10,14,30,106" SelectionChanged="cbo_charclass_SelectionChanged">
 
             </ComboBox>
         </GroupBox>
-        <Button x:Name="save_button" Content="Create Character" HorizontalAlignment="Left" Margin="26,308.198,0,0" VerticalAlignment="Top" Width="120" Height="24" Click="save_button_Click" Grid.Row="1"/>
-        <Label x:Name="class_select" Content="Label" HorizontalAlignment="Left" Margin="288,41,0,0" VerticalAlignment="Top" Width="112" Foreground="#FF14931A"/>
-        <TextBox x:Name="count_add" HorizontalAlignment="Left" Height="33" Margin="408,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" Text="15" TextAlignment="Center" FontSize="16">
+        <Button x:Name="save_button" Content="Create Character"  Style="{StaticResource MyButton}"  HorizontalAlignment="Left" Margin="26,301,0,0" VerticalAlignment="Top" Width="120" Height="34" Click="save_button_Click" Grid.Row="1" Foreground="White">
+            <Button.Background>
+                <ImageBrush ImageSource="button.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="class_select" Content="Label" HorizontalAlignment="Left" Margin="288,41,0,0" VerticalAlignment="Top" Width="112" Foreground="Black"/>
+        <TextBox x:Name="count_add" HorizontalAlignment="Left" Height="32" Margin="408,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" Text="15" TextAlignment="Center" FontSize="16" BorderThickness="0">
             <TextBox.Background>
                 <ImageBrush ImageSource="textboxBackground.png"/>
             </TextBox.Background>
         </TextBox>
-        <GroupBox Header="Statitistics" HorizontalAlignment="Left" Margin="288,86,0,0" VerticalAlignment="Top" Width="299" Height="259" Foreground="#FFBD4D19" Grid.RowSpan="2">
-            <Button x:Name="str_pos1" HorizontalAlignment="Left" Margin="137,2,0,180" VerticalAlignment="Stretch" Width="76" Click="str_pos1_Click" BorderThickness="0">
+        <GroupBox Header="Statitistics" HorizontalAlignment="Left" Margin="288,86,0,0" VerticalAlignment="Top" Width="299" Height="259" Foreground="Black" Grid.RowSpan="2" BorderThickness="0">
+            <Button x:Name="str_pos1" Style="{StaticResource MyButton}"  HorizontalAlignment="Left" Margin="137,2,0,180" VerticalAlignment="Stretch" Width="76" Click="str_pos1_Click" BorderThickness="0">
                 <Button.BorderBrush>
                     <ImageBrush/>
                 </Button.BorderBrush>
@@ -61,51 +86,60 @@
             </Button>
         </GroupBox>
         <Label Content="Strength" HorizontalAlignment="Left" Margin="314,27,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" FontFamily="Sitka Small"/>
-        <Label Content="Wisdom" HorizontalAlignment="Left" Margin="314,92,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" FontFamily="Sitka Small"/>
+        <Label Content="Wisdom" HorizontalAlignment="Left" Margin="314,90,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" FontFamily="Sitka Small"/>
         <Label Content="Dexterity" HorizontalAlignment="Left" Margin="314,141,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" FontFamily="Sitka Small"/>
         <Label Content="Health" HorizontalAlignment="Left" Margin="314,210,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" FontFamily="Sitka Small"/>
-        <Label x:Name="str_stat" Content="0" HorizontalAlignment="Left" Margin="386,26,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
+        <Label x:Name="str_stat" Content="0" HorizontalAlignment="Left" Margin="386,27,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
         <Label x:Name="wis_stat" Content="0" HorizontalAlignment="Left" Margin="386,90,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
         <Label x:Name="dex_stat" Content="0" HorizontalAlignment="Left" Margin="386,141,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1" RenderTransformOrigin="0.55,1.289"/>
-        <Label x:Name="hlt_stat" Content="0" HorizontalAlignment="Left" Margin="386,208,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
-        <Button x:Name="wis_pos2" Content="" HorizontalAlignment="Left" Margin="431,69,0,0" VerticalAlignment="Top" Width="77" Click="wis_pos2_Click" Grid.Row="1" Height="57" BorderThickness="0">
+        <Label x:Name="hlt_stat" Content="0" HorizontalAlignment="Left" Margin="386,210,0,0" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
+        <Button x:Name="wis_pos2" Style="{StaticResource MyButton}"   Content="" HorizontalAlignment="Left" Margin="431,69,0,0" VerticalAlignment="Top" Width="77" Click="wis_pos2_Click" Grid.Row="1" Height="57" BorderThickness="0">
             <Button.Background>
                 <ImageBrush ImageSource="addButton.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="dex_pos3" Content="+" HorizontalAlignment="Left" Margin="431,127,0,0" VerticalAlignment="Top" Width="77" Click="dex_pos3_Click" Grid.Row="1" Height="55" BorderThickness="0">
+        <Button x:Name="dex_pos3" Style="{StaticResource MyButton}" Content="" HorizontalAlignment="Left" Margin="431,127,0,0" VerticalAlignment="Top" Width="77" Click="dex_pos3_Click" Grid.Row="1" Height="55" BorderThickness="0">
+            <Button.Background>
+                <ImageBrush ImageSource="addButton.png" Stretch="UniformToFill"/>
+
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="hlt_pos4" Style="{StaticResource MyButton}" Content="" HorizontalAlignment="Left" Margin="430,194,0,0" VerticalAlignment="Top" Width="78" Click="hlt_pos4_Click" Grid.Row="1" Height="51" BorderThickness="0">
             <Button.Background>
                 <ImageBrush ImageSource="addButton.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="hlt_pos4" Content="+" HorizontalAlignment="Left" Margin="430,194,0,0" VerticalAlignment="Top" Width="78" Click="hlt_pos4_Click" Grid.Row="1" Height="51" BorderThickness="0">
-            <Button.Background>
-                <ImageBrush ImageSource="addButton.png" Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="str_neg1" Content="" HorizontalAlignment="Left" Margin="478,10,0,0" VerticalAlignment="Top" Width="69" Click="str_neg1_Click" Grid.Row="1" Height="54" BorderThickness="0">
-           
+        <Button x:Name="str_neg1" Style="{StaticResource MyButton}"  Content="" HorizontalAlignment="Left" Margin="478,11,0,0" VerticalAlignment="Top" Width="69" Click="str_neg1_Click" Grid.Row="1" Height="54" BorderThickness="0">
+
             <Button.Background>
                 <ImageBrush ImageSource="negButton.png" Stretch="UniformToFill"/>
             </Button.Background>
 
         </Button>
-        <Button x:Name="wis_neg2" Content="" HorizontalAlignment="Left" Margin="477,69,0,0" VerticalAlignment="Top" Width="69" Click="wis_neg2_Click" Grid.Row="1" Height="57" BorderThickness="0" >
+        <Button x:Name="wis_neg2" Style="{StaticResource MyButton}"  Content="" HorizontalAlignment="Left" Margin="479,69,0,0" VerticalAlignment="Top" Width="68" Click="wis_neg2_Click" Grid.Row="1" Height="57" BorderThickness="0" >
             <Button.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="negButton.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="dex_neg3" Content="" HorizontalAlignment="Left" Margin="478,125,0,0" VerticalAlignment="Top" Width="69" Click="dex_neg3_Click" Grid.Row="1" Height="55" BorderThickness="0">
+        <Button x:Name="dex_neg3" Style="{StaticResource MyButton}"  Content="" HorizontalAlignment="Left" Margin="478,127,0,0" VerticalAlignment="Top" Width="69" Click="dex_neg3_Click" Grid.Row="1" Height="55" BorderThickness="0">
             <Button.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="negButton.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="hlt_neg4" Content="" HorizontalAlignment="Left" Margin="477,194,0,0" VerticalAlignment="Top" Width="69" Click="hlt_neg4_Click" Grid.Row="1" Height="50" BorderThickness="0" ClickMode="Press">
+        <Button x:Name="hlt_neg4" Style="{StaticResource MyButton}"  Content="" HorizontalAlignment="Left" Margin="477,195,0,0" VerticalAlignment="Top" Width="69" Click="hlt_neg4_Click" Grid.Row="1" Height="50" BorderThickness="0" ClickMode="Press">
             <Button.Background>
                 <ImageBrush ImageSource="negButton.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
         <Label x:Name="levelstart" Content="Label" HorizontalAlignment="Left" Margin="508,41,0,0" VerticalAlignment="Top"/>
+        <Separator HorizontalAlignment="Left" Height="16" Margin="0,77,0,0" VerticalAlignment="Top" Width="601" Background="Black"/>
+
+
 
     </Grid>
+
+
+
+
 </Window>
